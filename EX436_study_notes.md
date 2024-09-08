@@ -135,6 +135,11 @@ Example: node1.hl.local:kvm-name-node1
 # pcs stonith show --full
 # pcs stonith fence node1
 ```
+
+### Generate fence_xvm.key
+```
+dd if=/dev/urandom of=/etc/cluster/fence_xvm.key bs=4k count=1
+```
 ### Configuration of fence_xvm
 Copy `/etc/cluster/fence_xvm.key` from the hypervisor!
 ```
