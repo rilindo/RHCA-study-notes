@@ -26,15 +26,14 @@ HA requires installation of Pacemaker software, fencing agents, configuration of
 # yum install -y pcs fence-agents-all
 # firewall-cmd --permanent --add-service=high-availability
 # firewall-cmd --reload
-# systemctl enable pcsd
-# systemctl start pcsd
+# systemctl enable pcsd --now
 # echo password | passwd --stdin hacluster
-# pcs cluster auth -u hacluster -p password node1 node2 node3
+# pcs host auth -u hacluster -p password node1 node2 node3
 ```
 ## 2. Cluster Creation
 All nodes start and join the cluster automatically:
 ```
-# pcs cluster setup --enable --start --name mycluster node1 node2 node3
+# pcs cluster setup --enable --start mycluster node1 node2 node3
 ```
 ## 3. Cluster Status
 ```
